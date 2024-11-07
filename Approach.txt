@@ -1,0 +1,28 @@
+
+Approach:
+
+Separation of Concerns: I Separated the logic for withdrawing funds from the controller. I used a service class to handle business logic, which will make the controller cleaner and adhere to the Single Responsibility Principle.
+
+Use of Exceptions: Instead of returning string messages for error handling, I used exceptions. This will help in managing error states more effectively and will improve the readability of the code.
+
+Consistent Data Access: I also Introduced a repository layer to handle data access. This will improve maintainability and allow for easier testing and data manipulation.
+
+Event Publishing: I Extracted the SNS publishing logic to a separate service to adhere to the Single Responsibility Principle.
+
+Improved JSON Handling: I Used a library like Jackson for JSON conversion instead of manual string formatting.
+
+Parameter Validation: I Ensured that input parameters are validated before processing the withdrawal.
+
+Logging: I also added logging to capture significant events and errors for better observability.
+
+Configuration Management: Externalize configuration parameters such as the SNS topic ARN, enhancing portability and flexibility.
+
+Implementation Choices:
+
+Spring Boot Services: I chose to use Spring's @Service annotation for the withdrawal service to encapsulate the business logic.
+
+Custom Exceptions: I Defined custom exception classes for specific error conditions.
+
+Data Transfer Object (DTO): I Created a DTO for withdrawal requests to encapsulate request data.
+
+Dependency Injection: I then continued to use Spring's dependency injection for services.
